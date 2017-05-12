@@ -1,0 +1,40 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	flatDir {
+       dirs 'lib'
+    }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile("org.springframework.boot:spring-boot-starter-web")  {
+	   exclude module: "spring-boot-starter-tomcat"
+	}
+	
+	compile group: 'com.google.guava', name: 'guava', version: '18.0'
+	compile name: 'xhive-shaded-10'
+	runtime ('xerces:xercesImpl:2.11.0')
+	runtime name: 'antlr-runtime'
+	runtime "org.aspectj:aspectjrt:1.8.2"
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
