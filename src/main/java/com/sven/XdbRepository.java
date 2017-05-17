@@ -73,10 +73,11 @@ int i = 0;
             for (XhiveXQueryValueIf value : result)
             {
                 XhiveNodeIf xml = value.asNode().getFirstChild();
-                monographList.add(xml.toXml());
+                
+                monographList.add(xml.toString());
                 System.out.println("reading xml  [" + i++ + "]");
-                //if (i > 2)
-                    //break;
+//                if (i > 2)
+//                    break;
             }
         }
         catch (Exception e)
