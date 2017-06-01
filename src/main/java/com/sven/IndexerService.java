@@ -15,7 +15,7 @@ public class IndexerService
     private XdbRepository xdb;
 
     
-    public void index(String folder)
+    public void index(final String folder)
     {
         
         RestTemplate rt = new RestTemplate();
@@ -25,7 +25,7 @@ public class IndexerService
         for (String xml : xdb.getMonographs(folder)) {
             
             try {
-                rt.put("http://127.0.0.1:8080/internal/indexer/topics", xml);
+                rt.put("http://127.0.0.1:8080/indexer/topics", xml);
             }catch (Exception e) {
                 e.printStackTrace();
             }

@@ -11,9 +11,9 @@ public class MainRunner implements CommandLineRunner
     @Autowired
     private IndexerService serivce;
     @Override
-    public void run(String... args) throws Exception
+    public void run(final String... args) throws Exception
     {
-        //serivce.index("/BP/ROWAN/en-gb");
-        serivce.index("/BP/ROWAN/zh-cn");
+        serivce.index("/BP/ROWAN/en-gb");
+        //serivce.index("/BP/ROWAN/zh-cn");
     }
 }
